@@ -29,6 +29,8 @@ namespace AspNetCoreIdentity
         {
             services.AddControllersWithViews();
 
+            services.AddRazorPages();
+
             services.AddDbContext<AspNetCoreIdentityContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("AspNetCoreIdentityContextConnection")));
 
@@ -69,6 +71,7 @@ namespace AspNetCoreIdentity
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
